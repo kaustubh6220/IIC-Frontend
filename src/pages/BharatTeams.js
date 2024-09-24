@@ -374,4 +374,4 @@ const BharatTeams = () => {
   );
 };
 
-export default BharatTeams;haratTeams;
+export default BharatTeams;
