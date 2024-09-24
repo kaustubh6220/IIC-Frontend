@@ -59,13 +59,49 @@ const Bharat = () => {
     });
   };
 
+
+  const handleFilesChange = (e) => {
+    const { name, files } = e.target;
+    const file = files[0];
+    const maxSize = 100 * 1024 * 1024; // 100MB in bytes
+  
+    if (file) {
+      if (file.size > maxSize) {
+        alert('File size exceeds 100MB. Please upload a smaller video.');
+        e.target.value = ""; // Clear the file input
+      } else if (file.type !== 'video/mp4') {
+        alert('Invalid file format. Please upload an MP4 video.');
+        e.target.value = ""; // Clear the file input
+      } else {
+        // File is valid, set form data
+        setFormData({
+          ...formData,
+          [name]: file
+        });
+        console.log('Video is acceptable:', file);
+      }
+    }
+  };
+
   const handleFileChange = (e) => {
     const { name, files } = e.target;
-    setFormData({
-      ...formData,
-      [name]: files[0]
-    });
+    const file = files[0];
+    const maxSize = 1 * 1024 * 1024; // 1MB in bytes
+  
+    if (file && file.size > maxSize) {
+      alert('File size exceeds 1MB. Please upload a smaller file.');
+      e.target.value = ""; // Clear the file input
+    } else {
+      setFormData({
+        ...formData,
+        [name]: file
+      });
+      // Handle the file upload
+      console.log('File is acceptable:', file);
+      // Further file handling logic
+    }
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -138,6 +174,7 @@ const Bharat = () => {
                 value={formData.companyName}
                 onChange={handleChange}
                 placeholder="Enter company/startup name" 
+                required
               />
             </div>
             <div className="flex flex-col">
@@ -149,6 +186,7 @@ const Bharat = () => {
                 value={formData.representativeName}
                 onChange={handleChange}
                 placeholder="Representative Name" 
+                required
               />
             </div>
             <div className="flex flex-col">
@@ -160,6 +198,7 @@ const Bharat = () => {
                 value={formData.phoneNumber}
                 onChange={handleChange}
                 placeholder="Phone Number" 
+                required
               />
             </div>
             <div className="flex flex-col">
@@ -171,6 +210,7 @@ const Bharat = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email" 
+                required
               />
             </div>
           </div>
@@ -217,8 +257,9 @@ const Bharat = () => {
                 name="isRegistered"
                 value={formData.isRegistered}
                 onChange={handleChange}
+                required
               >
-                <option>Select</option>
+                <option value="">Select</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
@@ -231,6 +272,7 @@ const Bharat = () => {
                 value={formData.founders}
                 onChange={handleChange}
                 placeholder="Founders and their backgrounds" 
+                required
               ></textarea>
             </div>
             <div className="flex flex-col">
@@ -241,6 +283,7 @@ const Bharat = () => {
                 value={formData.operationTime}
                 onChange={handleChange}
                 placeholder="" 
+                required
               ></textarea>
             </div>
             <div className="flex flex-col">
@@ -250,8 +293,9 @@ const Bharat = () => {
                 name="companyType"
                 value={formData.companyType}
                 onChange={handleChange}
+                required
               >
-                <option>Select</option>
+                <option value="">Select</option>
                 <option value="Private Limited Company">Private Limited Company</option>
                 <option value="Partnership firm">Partnership firm</option>
                 <option value="Limited Liability Partnership">Limited Liability Partnership</option>
@@ -265,8 +309,9 @@ const Bharat = () => {
                 name="hasTeam"
                 value={formData.hasTeam}
                 onChange={handleChange}
+                required
               >
-                <option>Select</option>
+                <option value="">Select</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
@@ -279,6 +324,7 @@ const Bharat = () => {
                 value={formData.problemStatement}
                 onChange={handleChange}
                 placeholder="Problem Statement" 
+                required
               ></textarea>
             </div>
             <div className="flex flex-col col-span-2">
@@ -289,6 +335,7 @@ const Bharat = () => {
                 value={formData.uniqueProduct}
                 onChange={handleChange}
                 placeholder="Unique Product" 
+                required
               ></textarea>
             </div>
             <div className="flex flex-col col-span-2">
@@ -299,6 +346,7 @@ const Bharat = () => {
                 value={formData.legalRequirements}
                 onChange={handleChange}
                 placeholder="Legal Requirements" 
+                required
               ></textarea>
             </div>
             <div className="flex flex-col">
@@ -308,8 +356,9 @@ const Bharat = () => {
                 name="currentStage"
                 value={formData.currentStage}
                 onChange={handleChange}
+                required
               >
-                <option>Select</option>
+                <option value="">Select</option>
                 <option value="Ideation Phase">Ideation Phase (Initial idea)</option>
                 <option value="Development Phase">Development Phase (Making MVP)</option>
                 <option value="Seed Stage">Seed Stage (Securing funding)</option>
@@ -325,8 +374,9 @@ const Bharat = () => {
                 name="hasFunding"
                 value={formData.hasFunding}
                 onChange={handleChange}
+                required
               >
-                <option>Select</option>
+                <option value="">Select</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
@@ -339,6 +389,7 @@ const Bharat = () => {
                 value={formData.fundingDetails}
                 onChange={handleChange}
                 placeholder="Funding Details" 
+                
               ></textarea>
             </div>
             <div className="flex flex-col">
@@ -348,8 +399,9 @@ const Bharat = () => {
                 name="hasAwards"
                 value={formData.hasAwards}
                 onChange={handleChange}
+                required
               >
-                <option>Select</option>
+                <option value="">Select</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
@@ -362,6 +414,7 @@ const Bharat = () => {
                 value={formData.awardsDetails}
                 onChange={handleChange}
                 placeholder="Awards Details" 
+            
               ></textarea>
             </div>
             <div className="flex flex-col col-span-2">
@@ -372,6 +425,7 @@ const Bharat = () => {
                 value={formData.targetCustomers}
                 onChange={handleChange}
                 placeholder="Target Customers" 
+                required
               ></textarea>
             </div>
             <div className="flex flex-col">
@@ -381,8 +435,9 @@ const Bharat = () => {
                 name="hasPrototype"
                 value={formData.hasPrototype}
                 onChange={handleChange}
+                required
               >
-                <option>Select</option>
+                <option value="">Select</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
@@ -394,22 +449,26 @@ const Bharat = () => {
                 name="hasPilot"
                 value={formData.hasPilot}
                 onChange={handleChange}
+                required
               >
-                <option>Select</option>
+                <option value="">Select</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
             </div>
             <div className="flex flex-col col-span-2">
-              <label className="text-xl font-serif tracking-tight mb-3">If yes, please provide evidence of the same (Upload 1 supported file. Max 10 MB):</label>
-              <input 
-                className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                type="file" 
-                name="pilotEvidence"
-                onChange={handleFileChange}
-                placeholder="Upload Evidence File" 
-              />
-            </div>
+  <label className="text-xl font-serif tracking-tight mb-3">If yes, please provide evidence of the same (Upload 1 supported file. Max 1 MB):</label>
+  <input 
+    className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
+    type="file" 
+    name="pilotEvidence"
+    accept="application/pdf"
+    onChange={handleFileChange}
+    placeholder="Upload Evidence File" 
+  />
+</div>
+
+
             <div className="flex flex-col col-span-2">
               <label className="text-xl font-serif tracking-tight mb-3">What is your current runway, and what are your funding needs?</label>
               <textarea 
@@ -418,19 +477,27 @@ const Bharat = () => {
                 value={formData.runway}
                 onChange={handleChange}
                 placeholder="Current Runway and Funding Needs" 
+                required
               ></textarea>
             </div>
             <div className="flex flex-col col-span-2">
-              <label className="text-xl font-serif tracking-tight mb-3">Prepare a short video, around 3 minutes, that provides an overview of your startup, details about your product, and general information about your team and vision:</label>
-              <input 
-                className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                type="file" 
-                name="video"
-                onChange={handleFileChange}
-                placeholder="Upload Video File" 
-              />
-            </div>
-          </div>
+  <label className="text-xl font-serif tracking-tight mb-3">
+    Prepare a short video, around 3 minutes, that provides an overview of your startup, details about your product, and general information about your team and vision:
+  </label>
+  <input 
+    className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
+    type="file" 
+    name="video"
+    accept="video/mp4"  // Accept only MP4 format
+    onChange={handleFilesChange}
+    placeholder="Upload Video File" 
+    required
+  />
+</div>
+</div>
+
+
+          
 
           <div className="flex justify-center mt-8">
             <button
