@@ -6,10 +6,12 @@ module.exports = {
       colors: {
         white: "#fff",
         black: "#000",
+        red: "#ff0000",
         gray: "rgba(255, 255, 255, 0.75)",
         blueviolet: "#9747ff",
         silver: "#aeb7bd",
         blanchedalmond: "#ffefca",
+        customBlue : "#d0d8f7",
       },
       spacing: {},
       fontFamily: {
