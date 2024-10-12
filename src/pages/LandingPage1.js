@@ -60,68 +60,47 @@ const LandingPage1 = () => {
 
       {/* Main Section */}
       <section className="my-20">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
+        <h1 className=" font-bold text-blue-800">
           <span
-            className="text-black"
+            className="text-bue-800 text-[15vw] lg:text-[7vw]"
             style={{
-              background: 'linear-gradient(to right, #C7B8EA, #87CEEB)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              textShadow: '6px 1px 0px rgba(0, 0, 0, 0.5)',
               fontWeight: 'bold',
               fontFamily: 'Barlow Semi Condensed',
-              fontSize: "100px"
+              // fontSize: "8vw"
             }}
           >
             BHARAT 2.0
           </span>
         </h1>
         <h2 className="text-2xl my-4 text-wrap">
-          <span
-            className="text-blue-500 font-bold"
-            style={{
-              fontFamily: 'Barlow Semi Condensed',
-              textShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
-            }}
-          >
-            <span className="inline-flex items-center">
-              <span className="text-[#C7B8EA] text-4xl sm:text-5xl md:text-6xl lg:text-7xl">B</span>
-              <span className="text-black ml-1">usiness</span>
-            </span>
-            &nbsp;
-            <span className="inline-flex items-center">
-              <span className="text-[#87CEEB] text-4xl sm:text-5xl md:text-6xl lg:text-7xl">H</span>
-              <span className="text-black ml-1">eroes</span>
-            </span>
-            &nbsp;
-            <span className="inline-flex items-center">
-              <span className="text-[#C7B8EA] text-4xl sm:text-5xl md:text-6xl lg:text-7xl">A</span>
-              <span className="text-black ml-1">spiring</span>
-            </span>
-            &nbsp;
-            <span className="inline-flex items-center">
-              <span className="text-black">to</span>
-            </span>
-            &nbsp;
-            <span className="inline-flex items-center">
-              <span className="text-[#87CEEB] text-4xl sm:text-5xl md:text-6xl lg:text-7xl">R</span>
-              <span className="text-black ml-1">ise</span>
-            </span>
-            &nbsp;
-            <span className="inline-flex items-center">
-              <span className="text-black">&</span>
-            </span>
-            &nbsp;
-            <span className="inline-flex items-center">
-              <span className="text-[#C7B8EA] text-4xl sm:text-5xl md:text-6xl lg:text-7xl">A</span>
-              <span className="text-black ml-1">chieve</span>
-            </span>
-            &nbsp;
-            <span className="inline-flex items-center">
-              <span className="text-[#87CEEB] text-4xl sm:text-5xl md:text-6xl lg:text-7xl">T</span>
-              <span className="text-black ml-1">ogether</span>
-            </span>
-          </span>
+        <span className="text-blue-500" style={{
+      fontSize: '3.5vw',
+      fontWeight: 'bold',
+      fontFamily: 'Barlow Semi Condensed',
+      textShadow: '0 0 10px rgba(0, 0, 0, 0.2)'
+    }}>
+      <span className="text-blue-800" style={{ fontSize: '4vw' }}>B</span>
+      <span style={{ color: '#000' }}>usiness</span>
+      &nbsp;
+      <span className="text-blue-800" style={{ fontSize: '4vw' }}>H</span>
+      <span style={{ color: '#000' }}>eroes</span>
+      &nbsp;
+      <span className="text-blue-800" style={{ fontSize: '4vw' }}>A</span>
+      <span style={{ color: '#000' }}>spiring</span>
+      &nbsp;
+      <span style={{ color: '#000' }}>to</span>
+      &nbsp;
+      <span className="text-blue-800" style={{ fontSize: '4vw' }}>R</span>
+      <span style={{ color: '#000' }}>ise</span>
+      &nbsp;
+      <span style={{ color: '#000' }}>&</span>
+      &nbsp;
+      <span className="text-blue-800" style={{ fontSize: '4vw' }}>A</span>
+      <span style={{ color: '#000' }}>chieve</span>
+      &nbsp;
+      <span className="text-blue-800" style={{ fontSize: '4vw' }}>T</span>
+      <span style={{ color: '#000' }}>ogether</span>
+    </span>
 
         </h2>
 
@@ -155,7 +134,7 @@ const LandingPage1 = () => {
 
 
       {/* Stats Section */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 my-16 px-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 my-16 px-4 w-[60%] mx-auto">
         <div className="text-center border-2 border-purple-300 p-4 rounded-lg">
           <h3 className="text-4xl font-bold" style={{ fontSize: '60px', color: 'purple' }}>45+</h3>
           <p className="text-lg" style={{ fontSize: '20px' }}>Startups Participated</p>
@@ -272,7 +251,7 @@ const LandingPage1 = () => {
             <img
               src="/rocket1.svg"
               alt="Rocket Icon"
-              className="h-32 w-32 sm:h-48 sm:w-48 md:h-56 md:w-56 lg:h-62 lg:w-109"
+              className="h-44 w-44 sm:h-48 sm:w-48 md:h-56 md:w-56 lg:h-62 lg:w-109"
             />
           </div>
 
