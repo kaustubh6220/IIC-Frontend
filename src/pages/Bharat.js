@@ -141,7 +141,7 @@ const Bharat = () => {
           </div>
         ) : (
           <>
-          <div className="container bg-customBlue p-2 m-0">
+          <div className="container bg-white p-2 m-0">
             <h1 className="heading text-black">BHARAT 2.0 Registration Process</h1>
             <div className=" flex flex-row justify-between w-[100vw] gap-20 mt-4">
               <div className=" flex flex-col gap-4">
@@ -161,7 +161,7 @@ const Bharat = () => {
             </div>
 
           </div>
-        <form onSubmit={handleSubmit} className="w-[100vw] mt-4 bg-customBlue max-lg: p-2 space-y-4">
+        <form onSubmit={handleSubmit} className="w-[100vw] mt-4 bg-white max-lg: p-2 space-y-4">
           {/* Participant Information */}
           <h2 className="text-5xl font-inter font-semibold tracking-tight text-center mb-8">Participant Information:</h2>
           <div className="grid grid-cols-2 w-full gap-10 max-lg:grid-cols-1">

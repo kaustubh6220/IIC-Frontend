@@ -54,7 +54,7 @@ const LandingPage1 = () => {
 
 
   return (
-    <div className="min-h-screen bg-customBlue text-center font-source-sans-pro">
+    <div className="min-h-screen bg-white text-center font-source-sans-pro">
 
       <NavBar />
 
