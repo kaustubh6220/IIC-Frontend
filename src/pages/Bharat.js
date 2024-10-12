@@ -141,21 +141,21 @@ const Bharat = () => {
           </div>
         ) : (
           <>
-          <div className="container bg-blueviolet p-2 m-0">
-            <h1 className="heading text-black">BHARAT 2.0 Registration Process</h1>
+          <div className="container bg-[#3d3f86] p-2 m-0 text-white">
+            <h1 className="heading ">BHARAT 2.0 Registration Process</h1>
             <div className=" flex flex-row justify-between w-[100vw] gap-20 mt-4">
               <div className=" flex flex-col gap-4">
-                <h2 className="title text-black">Round 1:</h2>
-                <ul className="title2 text-black">
+                <h2 className="title ">Round 1:</h2>
+                <ul className="title2 ">
                   <li>Open to all startups.</li>
                   <li>Startups will present to a jury.</li>
                   <li>Winners will be awarded cash prizes.</li>
                 </ul>
-                <h2 className="title text-black">Round 2:</h2>
-                <ul className="title2 text-black">
+                <h2 className="title ">Round 2:</h2>
+                <ul className="title2">
                   <li>Only selected startups that qualify through the initial sorting process will earn the opportunity to present their ventures to potential investors.</li>
                 </ul>
-                <h2 className="title1 text-red">REGISTRATION FEES: RS. 350 PER TEAM</h2>
+                <h2 className="title1 text-orange">REGISTRATION FEES: RS. 350 PER TEAM</h2>
 
               </div>
             </div>
