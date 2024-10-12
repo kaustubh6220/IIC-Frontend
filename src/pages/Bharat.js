@@ -141,7 +141,7 @@ const Bharat = () => {
           </div>
         ) : (
           <>
-          <div className="container bg-white p-2 m-0">
+          <div className="container bg-blueviolet p-2 m-0">
             <h1 className="heading text-black">BHARAT 2.0 Registration Process</h1>
             <div className=" flex flex-row justify-between w-[100vw] gap-20 mt-4">
               <div className=" flex flex-col gap-4">
