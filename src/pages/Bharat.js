@@ -147,9 +147,8 @@ const Bharat = () => {
               <div className=" flex flex-col gap-4">
                 <h2 className="title ">Round 1:</h2>
                 <ul className="title2 ">
-                  <li>Open to all startups.</li>
-                  <li>Startups will present to a jury.</li>
-                  <li>Winners will be awarded cash prizes.</li>
+                  <li>Initial idea submission and concept screening.
+                  </li>
                 </ul>
                 <h2 className="title ">Round 2:</h2>
                 <ul className="title2">
