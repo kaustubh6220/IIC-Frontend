@@ -24,6 +24,22 @@
     align-items: center;
     justify-content: space-around;
 }
+.pdf-link {
+    color: black; /* Initial color */
+    text-decoration: none; /* Removes underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+    
+}
+
+.pdf-link:hover {
+    color: red; /* Color changes on hover */
+}
+.link button {
+    
+        border: 8px solid gray;
+      
+  }
+
 
 .con1 a {
     text-decoration: none;

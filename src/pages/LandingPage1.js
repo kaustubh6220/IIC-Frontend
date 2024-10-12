@@ -3,6 +3,7 @@ import styles from './LandingPage1.module.css'
 import {useNavigate} from "react-router-dom";
 import ReactDOM from 'react-dom'; 
 import Footer from '../Components/Footer';
+import NavBar from "../Components/NavBar";
 
 const LandingPage1 = () => {
   const navigate = useNavigate();
@@ -143,29 +144,28 @@ const LandingPage1 = () => {
   
   // );
   return (
+    
     <div className="min-h-screen bg-white text-center font-source-sans-pro">
       
       {/* Header Section */}
       <header className="flex justify-between items-center p-5">
-        <img src="/logo-3-1@2x.png" alt="IIC Logo" className="h-12" />
+        <img src="/logo-3-1@2x.png" alt="IIC Logo" className="h-12"  />
         <div className="flex-shrink-0 space-x-[0.3rem] lg:space-x-[1.5rem]">
-              <span onClick={onHomeTextClick} className="cursor-pointer">Home</span>
-               <span onClick={onAboutTextClick} className="cursor-pointer">About</span>
-               <span onClick={onTeamTextClick} className="cursor-pointer">Teams</span>
-             <span onClick={onEventsTextClick} className="cursor-pointer">Events</span>
-               <span onClick={onContactTextClick} className="cursor-pointer">Contact</span>
+              <span onClick={onHomeTextClick} className="cursor-pointer" style={{fontSize:'24px'}}>Home</span>
+               <span onClick={onAboutTextClick} className="cursor-pointer" style={{fontSize:'24px'}}>About</span>
+               <span onClick={onTeamTextClick} className="cursor-pointer"style={{fontSize:'24px'}}>Teams</span>
+             <span onClick={onEventsTextClick} className="cursor-pointer"style={{fontSize:'24px'}}>Events</span>
+               <span onClick={onContactTextClick} className="cursor-pointer"style={{fontSize:'24px'}}>Contact</span>
              </div>
         <img src="/image-7@2x.png" alt="MIT ADT Logo" className="h-12" />
       </header>
   
       {/* Main Section */}
-      <section className="my-20">
-      <h1 className="text-6xl font-bold">  
-  <span className="text-black" style={{  
-   background: 'linear-gradient(to right, #C7B8EA, #87CEEB)',  
-   WebkitBackgroundClip: 'text',  
-   WebkitTextFillColor: 'transparent',  
-   textShadow: '6px 1px 0px rgba(0, 0, 0, 0.5)',  
+      <section className="my-20 ">
+      <h1 className="text-blue-800 font-bold">  
+  <span class="text-blue-800" style={{  
+   background: 'linear-gradient(to right, #C0000ff, #87CEEB)',  
+   WebkitBackgroundClip: 'text',   
    fontSize: '116px',  
    fontWeight: 'bold',  
    fontFamily: 'Barlow Semi Condensed'  
@@ -178,32 +178,32 @@ const LandingPage1 = () => {
    fontFamily: 'Barlow Semi Condensed',  
    textShadow: '0 0 10px rgba(0, 0, 0, 0.2)'  
   }}>  
-   <span style={{ color: '#C7B8EA', fontSize:'70px' }}>B</span>  
+   <span class="text-blue-800" style={{  fontSize:'70px' }}>B</span>  
    <span style={{ color: '#000' }}>usiness</span>  
    
    &nbsp; 
-   <span style={{ color: '#87CEEB', fontSize:'70px' }}>H</span>  
+   <span class="text-blue-800" style={{ fontSize:'70px' }}>H</span>  
    <span style={{ color: '#000' }}>eroes</span>  
    &nbsp; 
-   <span style={{ color: '#C7B8EA' ,fontSize:'70px' }}>A</span>  
+   <span class="text-blue-800" style={{fontSize:'70px' }}>A</span>  
    <span style={{ color: '#000' }}>spiring</span>  
    &nbsp; 
    <span style={{ color: '#000' }}>to</span>  
    &nbsp;
-   <span style={{ color: '#87CEEB', fontSize:'70px' }}>R</span>  
+   <span class="text-blue-800"  style={{  fontSize:'70px' }}>R</span>  
    <span style={{ color: '#000' }}>ise</span>  
    &nbsp; 
    <span style={{ color: '#000' }}>&</span>  
    &nbsp;
    
-   <span style={{ color: '#C7B8EA', fontSize:'70px' }}>A</span>  
+   <span class="text-blue-800" style={{  fontSize:'70px' }}>A</span>  
    <span style={{ color: '#000' }}>chieve</span>  
    &nbsp; 
-   <span style={{ color: '#87CEEB', fontSize:'70px' }}>T</span>  
+   <span class="text-blue-800" style={{ fontSize:'70px' }}>T</span>  
    <span style={{ color: '#000' }}>ogether</span>  
   </span>  
 </h2>
-        <p className="mt-6 text-lg max-w-3xl mx-auto">
+        <p className="mt-6 text-lg max-w-3xl mx-auto" style={{fontWeight: "bold"}}>
           This is a fantastic opportunity for young innovators to showcase their ideas and take the first steps towards building successful ventures. Are you planning to participate or know someone who is?
         </p>
   
@@ -233,20 +233,20 @@ const LandingPage1 = () => {
       {/* Stats Section */}
     <section className="flex justify-center space-x-8 my-16">
       <div className="text-center border-20 border-purple-300 p-4 rounded-lg">
-        <h3 className="text-4xl  font-bold" style={{fontSize: '60px', color:'purple'}}>45+</h3>
-        <p className="text-lg"style={{fontSize: '20px'}}>Startups Participated</p>
+        <h3 className="text-4xl  font-bold p-6" style={{fontSize: '68px',fontWeight:'bold', color:'purple'}}>45+</h3>
+        <p className="text-lg "style={{fontSize: '20px',fontWeight:'bold'}}>Startups Participated</p>
       </div>
       <div className="text-center border-2 border-gray-300 p-4 rounded-lg">
-        <h3 className="text-4xl font-bold" style={{fontSize: '60px', color:'darkblue'}}>1K</h3>
-        <p className="text-lg"style={{fontSize: '20px'}}>Participants</p>
+        <h3 className="text-4xl font-bold p-6" style={{fontSize: '68px',fontWeight:'bold', color:'purple'}}>1K</h3>
+        <p className="text-lg"style={{fontSize: '20px',fontWeight:'bold'}}>Participants</p>
       </div>
       <div className="text-center border-2 border-gray-300 p-4 rounded-lg">
-        <h3 className="text-4xl font-bold"style={{fontSize: '60px', color:'purple'}}>1 Lac</h3>
-        <p className="text-lg"style={{fontSize: '20px'}}>Prize Pool</p>
+        <h3 className="text-4xl font-bold p-6"style={{fontSize: '68px',fontWeight:'bold', color:'purple'}}>1 Lac</h3>
+        <p className="text-lg"style={{fontSize: '20px',fontWeight:'bold'}}>Prize Pool</p>
       </div>
       <div className="text-center border-2 border-gray-300 p-4 rounded-lg">
-        <h3 className="text-4xl font-bold"style={{fontSize: '60px', color:'darkblue'}}>10+</h3>
-        <p className="text-lg" style={{fontSize: '20px'}}>Startups Received Investment</p>
+        <h3 className="text-4xl font-bold p-6"style={{fontSize: '68px', fontWeight:'bold',color:'purple'}}>10+</h3>
+        <p className="text-lg" style={{fontSize: '20px',fontWeight:'bold'}}>Startups Received Investment</p>
       </div>
     </section>
 
