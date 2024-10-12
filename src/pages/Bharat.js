@@ -155,7 +155,7 @@ const Bharat = () => {
                 <ul className="title2">
                   <li>Detailed pitch presentations in front of expert judges.</li>
                 </ul>
-                <h2 className="title1 text-orange">REGISTRATION FEES: RS. 350 PER TEAM</h2>
+                <h2 className="title1 text-orange">REGISTRATION FEES: RS. 500 PER TEAM</h2>
 
               </div>
             </div>
