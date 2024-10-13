@@ -449,6 +449,7 @@ const Bharat = () => {
                 </div>
 
                 <div className="flex flex-col items-center">
+
                   <label className="text-xl font-mono tracking-tight mb-3 w-5/6 text-start">Has your startup received any awards, grants, or recognitions?</label>
                   <select
                     className="text-xl bg-slate-200 w-5/6 px-3 py-4 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-start"
@@ -478,16 +479,50 @@ const Bharat = () => {
                 </div>
               </div>
 
+              <div className="flex flex-col items-center w-11/12 mx-auto lg:w-full">
+                  <div className="flex flex-col w-[84%] max-lg:w-full mb-4">
+                  <label className="text-xl font-mono tracking-tight mb-3 w-11/12 text-start">
+                    Prepare a short video, around 3 minutes, that provides an overview of your startup, details about your product, and general information about your team and vision:
+                  </label>
+                  <input
+                    className="text-xl bg-slate-200 w-full px-3 py-4 rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+                    type="file"
+                    name="video"
+                    accept="video/mp4"  // Accept only MP4 format
+                    onChange={handleFilesChange}
+                    placeholder="Upload Video File"
+                    required
+                  />
+                </div>
+              </div>
 
+              <div class="flex justify-center items-center mt-2 mb-7 mt-7 gap-5">
+                <a
+                  href="pdf/Bharat brochure.pdf"
+                  target="_blank"
+                  class="link px-7 py-2.5 mt-2 flex justify-center gap-2 items-center mx-auto shadow-xl text-lg lg:font-semibold px-6 py-2 overflow-hidden rounded group bg-blue-600 text-white"
+                  style={{ margin: '1px' }}
+                >
+                  Guidelines
+                  <svg
+                    class=" border-gray-500 w-6 h-6 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-800 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-1 rotate-45"
+                    viewBox="0 0 16 19"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
+                      class="fill-white"
+                    ></path>
+                  </svg>
+                </a>
 
-
-
-              <div className="flex justify-center mt-8">
                 <button
                   type="submit"
-                  className="bg-blue-500 mb-4 text-white px-6 py-3 rounded-full text-xl shadow-md"
+                  class="bg-green-500  hover:bg-green-700 mt-2 px-8 py-3  flex justify-center gap-2 items-center mx-auto shadow-xl text-5xl text-white overflow-hidden rounded group cursor-pointer font-mono font-medium"
+                  style={{ margin: '1px' }}
                 >
-                  Submit
+                  SUBMIT
+
                 </button>
               </div>
 
