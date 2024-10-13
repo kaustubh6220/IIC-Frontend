@@ -37,7 +37,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="font-source-sans-pro text-center text-[1.7rem] text-black bg-gray w-[100%] flex justify-between items-center">
+    <nav className="font-source-sans-pro text-center text-[1.7rem] text-black bg-gray w-full flex justify-between items-center">
       <span
         className="block lg:hidden text-[3rem] ml-[16px] mt-[16px] cursor-pointer"
         onClick={toggleMenu}
