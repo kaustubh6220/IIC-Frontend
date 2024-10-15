@@ -37,7 +37,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="font-source-sans-pro text-center text-[1.7rem] text-black bg-gray w-full flex justify-between items-center">
+    <nav className="font-source-sans-pro text-center text-[1.7rem] text-black bg-gray w-[95%] flex justify-between items-center py-3 px-5">
       <span
         className="block lg:hidden text-[3rem] ml-[16px] mt-[16px] cursor-pointer"
         onClick={toggleMenu}
@@ -45,7 +45,7 @@ const NavBar = () => {
         {!isMenuOpen ? <GiHamburgerMenu /> : <IoClose />}
       </span>
 
-      <img className="lg:block w-28 h-auto lg:w-48 md:w-36" alt="Logo" src="/logo-3-1@2x.png" />
+      <img className="lg:block w-28 h-auto lg:w-28 md:w-36" alt="Logo" src="/logo-3-1@2x.png" />
 
       {isMenuOpen && (
         <div className="absolute top-[60px] left-0 w-[90%] bg-white shadow-lg z-50 flex flex-col items-center space-y-4 p-6 lg:hidden">
@@ -85,7 +85,7 @@ const NavBar = () => {
         </span>
       </div>
 
-      <img className="lg:block w-28 h-auto lg:w-48 md:w-36 mr-[20px]" alt="Another Image" src="/image-7@2x.png" />
+      <img className="lg:block w-28 h-auto lg:w-28 md:w-36 mr-[20px]" alt="Another Image" src="/image-7@2x.png" />
     </nav>
   );
 };
