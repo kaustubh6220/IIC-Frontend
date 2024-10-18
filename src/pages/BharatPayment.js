@@ -30,7 +30,7 @@ const BharatPayment = () => {
         
         const orderUrl = `${process.env.REACT_APP_AWS_PUBLIC_LINK}/api/payment/order`; 
         const orderData = {
-          amount: 3, 
+          amount: 500, 
           email: email, 
         };
         
