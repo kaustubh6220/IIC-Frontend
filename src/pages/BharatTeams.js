@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { utils, writeFile } from 'xlsx'; // Import from 'xlsx'
 import ProtectedRoute from '../Components/ProtectedRoute';
 import NavBar from '../Components/NavBar';
 import Footer from '../Components/Footer';
@@ -25,6 +26,36 @@ const BharatTeams = () => {
     registration.companyName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Function to export data to Excel
+  const exportToExcel = () => {
+    const tableData = filteredRegistrations.map(registration => ({
+      'Company Name': registration.companyName,
+      'Representative Name': registration.representativeName,
+      'Phone Number': registration.phoneNumber,
+      'Email': registration.email,
+      'LinkedIn': registration.linkedin,
+      'Team Members': registration.teamMembers,
+      'Idea': registration.idea,
+      'Startup Type': registration.startuptype,
+      'Target Industry': registration.TargetIndustry,
+      'Revenue': registration.revenue,
+      'Financial Status': registration.financialstatus,
+      'Burn Rate': registration.burnrate,
+      'Approval': registration.approval,
+      'Specify': registration.specify,
+      'Funding': registration.funding,
+      'Mentorship': registration.mentorship,
+      'Payment': registration.paymentStatus ? 'Paid' : 'Unpaid',
+      'PPT': registration.ppt ? 'Available' : 'No PPT',
+    }));
+
+    const worksheet = utils.json_to_sheet(tableData);
+    const workbook = utils.book_new();
+    utils.book_append_sheet(workbook, worksheet, 'Registrations');
+
+    writeFile(workbook, 'Startup_Registrations.xlsx');
+  };
+
   return (
     <>
       <NavBar />
@@ -37,9 +68,17 @@ const BharatTeams = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <div className=" w-11/12  p-4 overflow-x-scroll">
+        <div className="w-11/12 p-4 overflow-x-scroll">
 
           <h1 className="text-2xl font-bold mb-6">Startup Registrations</h1>
+
+          {/* Button to download table as Excel */}
+          <button
+            onClick={exportToExcel}
+            className="mb-4 p-2 bg-green-500 text-white rounded"
+          >
+            Download Excel
+          </button>
 
           <table style={{
             borderCollapse: 'collapse',
@@ -47,285 +86,53 @@ const BharatTeams = () => {
             border: '1px solid black ',
             radius:'5px',
           }} className=' text-center'>
-            <thead >
-              <tr className=' '>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                  minWidth: 'fit-content'
-                }}>Company Name</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Representative Name</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Phone Number</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Email</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Team Members</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Idea</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Is Registered</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Founders</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Operation Time</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Company Type</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Has Team</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Problem Statement</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Unique Product</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Legal Requirements</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Current Stage</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Has Funding</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Funding Details</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Has Awards</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Awards Details</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Target Customers</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Has Prototype</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Has Pilot</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Pilot Evidence</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Runway</th>
-                <th style={{
-                  border: '1px solid black',
-                  padding: '8px',
-                  backgroundColor: '#f4f4f4',
-                  textAlign: 'center',
-                  
-                }}>Video</th>
+            <thead>
+              <tr>
+                {/* Updated table headers based on the new schema */}
+                <th>Company Name</th>
+                <th>Representative Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>LinkedIn</th>
+                <th>Team Members</th>
+                <th>Idea</th>
+                <th>Startup Type</th>
+                <th>Target Industry</th>
+                <th>Revenue</th>
+                <th>Financial Status</th>
+                <th>Burn Rate</th>
+                <th>Approval</th>
+                <th>Specify</th>
+                <th>Funding</th>
+                <th>Mentorship</th>
+                <th>Payment</th>
+                <th>PPT</th>
               </tr>
             </thead>
             <tbody>
               {filteredRegistrations.map((registration, index) => (
-                
                 <tr key={index}>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.companyName}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.representativeName}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.phoneNumber}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.email}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.teamMembers}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.idea}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.isRegistered}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.founders}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.operationTime}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.companyType}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.hasTeam}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.problemStatement}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.uniqueProduct}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.legalRequirements}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.currentStage}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.hasFunding}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.fundingDetails}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.hasAwards}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.awardsDetails}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.targetCustomers}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.hasPrototype}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.hasPilot}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>
-                    {registration.pilotEvidence ? (
+                  <td>{registration.companyName}</td>
+                  <td>{registration.representativeName}</td>
+                  <td>{registration.phoneNumber}</td>
+                  <td>{registration.email}</td>
+                  <td>{registration.linkedin}</td>
+                  <td>{registration.teamMembers}</td>
+                  <td>{registration.idea}</td>
+                  <td>{registration.startuptype}</td>
+                  <td>{registration.TargetIndustry}</td>
+                  <td>{registration.revenue}</td>
+                  <td>{registration.financialstatus}</td>
+                  <td>{registration.burnrate}</td>
+                  <td>{registration.approval}</td>
+                  <td>{registration.specify}</td>
+                  <td>{registration.funding}</td>
+                  <td>{registration.mentorship}</td>
+                  <td>{registration.paymentStatus ? 'Paid' : 'Unpaid'}</td>
+                  <td>
+                    {registration.ppt ? (
                       <a
-                        href={`${process.env.REACT_APP_AWS_PUBLIC_LINK}/${registration.pilotEvidence}`}
+                        href={`${process.env.REACT_APP_AWS_PUBLIC_LINK}/${registration.ppt}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
@@ -333,34 +140,10 @@ const BharatTeams = () => {
                           textDecoration: 'underline'
                         }}
                       >
-                        View Evidence
+                        View PPT
                       </a>
                     ) : (
-                      'No Evidence'
-                    )}
-                  </td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>{registration.runway}</td>
-                  <td style={{
-                    border: '1px solid black',
-                    padding: '8px'
-                  }}>
-                    {registration.video ? (
-                      <a
-                        href={`${process.env.REACT_APP_AWS_PUBLIC_LINK}/${registration.video}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          color: 'blue',
-                          textDecoration: 'underline'
-                        }}
-                      >
-                        View Video
-                      </a>
-                    ) : (
-                      'No Video'
+                      'No PPT'
                     )}
                   </td>
                 </tr>
