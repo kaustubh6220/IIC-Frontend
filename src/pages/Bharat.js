@@ -11,27 +11,21 @@ const Bharat = () => {
     representativeName: "",
     phoneNumber: "",
     email: "",
+    linkedin:"",
     teamMembers: "",
     idea: "",
-    isRegistered: "",
-    founders: "",
-    operationTime: "",
-    companyType: "",
-    hasTeam: "",
-    problemStatement: "",
-    uniqueProduct: "",
-    legalRequirements: "",
-    currentStage: "",
-    hasFunding: "",
-    fundingDetails: "",
-    hasAwards: "",
-    awardsDetails: "",
-    targetCustomers: "",
-    hasPrototype: "",
-    hasPilot: "",
-    pilotEvidence: "",
-    runway: "",
-    video: null
+    startuptype: "",
+    TargetIndustry: "",
+    revenue: "",
+    financialstatus: "",
+    burnrate: "",
+    approval: "",
+    specify: "",
+    funding: "",
+    mentorship: "",
+    ppt: "",
+    
+    
   });
   const [maxReached, setMaxReached] = useState(false);
 
@@ -59,29 +53,6 @@ const Bharat = () => {
     });
   };
 
-
-  const handleFilesChange = (e) => {
-    const { name, files } = e.target;
-    const file = files[0];
-    const maxSize = 100 * 1024 * 1024; // 100MB in bytes
-  
-    if (file) {
-      if (file.size > maxSize) {
-        alert('File size exceeds 100MB. Please upload a smaller video.');
-        e.target.value = ""; // Clear the file input
-      } else if (file.type !== 'video/mp4') {
-        alert('Invalid file format. Please upload an MP4 video.');
-        e.target.value = ""; // Clear the file input
-      } else {
-        // File is valid, set form data
-        setFormData({
-          ...formData,
-          [name]: file
-        });
-        console.log('Video is acceptable:', file);
-      }
-    }
-  };
 
   const handleFileChange = (e) => {
     const { name, files } = e.target;
@@ -212,10 +183,34 @@ const Bharat = () => {
                 required
               />
             </div>
+            <div className="flex flex-col">
+              <label className="text-xl font-serif tracking-tight mb-3">Founder(s), their roles, and LinkedIn Profile of Founder(s):</label>
+              <input 
+                className="text-xl bg-slate-100 t-2 w-5/6 max-lg:w-full px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" 
+                type="text" 
+                name="linkedin"
+                value={formData.linkedin}
+                onChange={handleChange}
+                placeholder="LinkedIn Id" 
+                required
+              />
+            </div>
+            <div className="flex flex-col">
+              <label className="text-xl font-serif tracking-tight mb-3">Number of People in the Team :</label>
+              <input 
+                className="text-xl bg-slate-100 t-2 w-5/6 max-lg:w-full px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" 
+                type="text" 
+                name="teamMembers"
+                value={formData.teamMembers}
+                onChange={handleChange}
+                placeholder="No. of people" 
+                required
+              />
+            </div>
           </div>
 
           {/* Team Information */}
-          <hr className=" bg-slate-200 w-full h-0.5 px-2"></hr>
+          {/* <hr className=" bg-slate-200 w-full h-0.5 px-2"></hr>
           <h2 className="text-5xl font-inter font-semibold tracking-tight text-center mb-8">Team Information (if applicable):</h2>
           <div className="grid grid-cols-2 gap-8">
             <div className="flex flex-col col-span-2 mb-4">
@@ -232,15 +227,16 @@ const Bharat = () => {
                 placeholder="Name & contact of Team members" 
               ></textarea>
             </div>
-          </div>
+          </div> */}
 
           {/* Idea/Project Details */}
           <hr className=" bg-slate-200 w-full h-0.5 px-2"></hr>
 
-          <h2 className="text-5xl font-inter font-semibold tracking-tight text-center mb-8">Idea/Project Details:</h2>
+          <h2 className="text-5xl font-inter font-semibold tracking-tight text-center mb-8">Startup Details:</h2>
           <div className="grid grid-cols-2 gap-8">
             <div className="flex flex-col col-span-2">
-              <label className="text-xl font-serif tracking-tight mb-3">Explain the ideation behind your Startup/Business:</label>
+              <label className="text-xl font-serif tracking-tight mb-3">Name and what is your startup? (Describe in less than 150 words, include social media links):   
+              </label>
               <textarea 
                 className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
                 name="idea"
@@ -250,63 +246,65 @@ const Bharat = () => {
               ></textarea>
             </div>
             <div className="flex flex-col">
-              <label className="text-xl font-serif tracking-tight mb-3">Is your Startup registered with Startup India:</label>
-              <select 
+              <label className="text-xl font-serif tracking-tight mb-3">What type of startup is it? (eg, LLP, LLC, etc) :</label>
+              <textarea
                 className="text-xl bg-slate-100 t-2 w-5/6 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="isRegistered"
-                value={formData.isRegistered}
+                name="startuptype"
+                value={formData.startuptype}
                 onChange={handleChange}
-                required
-              >
-                <option value="">Select</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
+                required>
+              </textarea>
             </div>
             <div className="flex flex-col col-span-2">
-              <label className="text-xl font-serif tracking-tight mb-3">Who are the founders, and what are their backgrounds?</label>
+              <label className="text-xl font-serif tracking-tight mb-3">What is your target industry? : </label>
               <textarea 
                 className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                name="founders"
-                value={formData.founders}
+                name="TargetIndustry"
+                value={formData.TargetIndustry}
                 onChange={handleChange}
-                placeholder="Founders and their backgrounds" 
+                placeholder="TargetIndustry" 
                 required
               ></textarea>
             </div>
             <div className="flex flex-col">
-              <label className="text-xl font-serif tracking-tight mb-3">How long has your Startup/Company been in operation?</label>
+              <label className="text-xl font-serif tracking-tight mb-3">What is the revenue of the current financial year? : </label>
               <textarea 
                 className="text-xl bg-slate-100 t-2 w-5/6 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                name="operationTime"
-                value={formData.operationTime}
+                name="revenue"
+                value={formData.revenue}
+                onChange={handleChange}
+                placeholder="" 
+                required
+              ></textarea>
+            </div>
+            <div className="flex flex-col col-span-2">
+              <label className="text-xl font-serif tracking-tight mb-3">What is the current financial status of the startup? (Profit, loss, breakeven, etc.): </label>
+              <textarea 
+                className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                name="financialstatus"
+                value={formData.financialstatus}
+                onChange={handleChange}
+                placeholder=" " 
+                required
+              ></textarea>
+            </div>
+            <div className="flex flex-col col-span-2">
+              <label className="text-xl font-serif tracking-tight mb-3">What is the profit and loss status for the current financial year, and what is your current burn rate? : </label>
+              <textarea 
+                className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                name="burnrate"
+                value={formData.burnrate}
                 onChange={handleChange}
                 placeholder="" 
                 required
               ></textarea>
             </div>
             <div className="flex flex-col">
-              <label className="text-xl font-serif tracking-tight mb-3">What type of company is your Startup/Business?</label>
+              <label className="text-xl font-serif tracking-tight mb-3">Does your startup require approval from government bodies? (eg, FDA for food startups) :  </label>
               <select 
                 className="text-xl bg-slate-100 t-2 w-5/6 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="companyType"
-                value={formData.companyType}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select</option>
-                <option value="Private Limited Company">Private Limited Company</option>
-                <option value="Partnership firm">Partnership firm</option>
-                <option value="Limited Liability Partnership">Limited Liability Partnership</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div className="flex flex-col">
-              <label className="text-xl font-serif tracking-tight mb-3">Do you have a full-time, dedicated team?</label>
-              <select 
-                className="text-xl bg-slate-100 t-2 w-5/6 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="hasTeam"
-                value={formData.hasTeam}
+                name="approval"
+                value={formData.approval}
                 onChange={handleChange}
                 required
               >
@@ -316,123 +314,34 @@ const Bharat = () => {
               </select>
             </div>
             <div className="flex flex-col col-span-2">
-              <label className="text-xl font-serif tracking-tight mb-3">What problem statement is your Startup/Business addressing?</label>
+              <label className="text-xl font-serif tracking-tight mb-3">If yes, specify : </label>
               <textarea 
                 className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                name="problemStatement"
-                value={formData.problemStatement}
+                name="specify"
+                value={formData.specify}
                 onChange={handleChange}
-                placeholder="Problem Statement" 
-                required
-              ></textarea>
-            </div>
-            <div className="flex flex-col col-span-2">
-              <label className="text-xl font-serif tracking-tight mb-3">Can you explain what makes your product/services unique compared to your competitor's products?</label>
-              <textarea 
-                className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                name="uniqueProduct"
-                value={formData.uniqueProduct}
-                onChange={handleChange}
-                placeholder="Unique Product" 
-                required
-              ></textarea>
-            </div>
-            <div className="flex flex-col col-span-2">
-              <label className="text-xl font-serif tracking-tight mb-3">Are there any legal or regulatory requirements specific to your industry?</label>
-              <textarea 
-                className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                name="legalRequirements"
-                value={formData.legalRequirements}
-                onChange={handleChange}
-                placeholder="Legal Requirements" 
-                required
-              ></textarea>
-            </div>
-            <div className="flex flex-col">
-              <label className="text-xl font-serif tracking-tight mb-3">What stage is your Startup currently in?</label>
-              <select 
-                className="text-xl bg-slate-100 t-2 w-5/6 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="currentStage"
-                value={formData.currentStage}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select</option>
-                <option value="Ideation Phase">Ideation Phase (Initial idea)</option>
-                <option value="Development Phase">Development Phase (Making MVP)</option>
-                <option value="Seed Stage">Seed Stage (Securing funding)</option>
-                <option value="Startup Stage">Startup Stage (Launching the MVP)</option>
-                <option value="Growth Stage">Growth Stage (Scaling operations)</option>
-                <option value="Expansion Stage">Expansion Stage (Stable revenue)</option>
-              </select>
-            </div>
-            <div className="flex flex-col">
-              <label className="text-xl font-serif tracking-tight mb-3">Has your Startup received any funding, such as pre-seed, seed, or series funding?</label>
-              <select 
-                className="text-xl bg-slate-100 t-2 w-5/6 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="hasFunding"
-                value={formData.hasFunding}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Select</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-            </div>
-            <div className="flex flex-col col-span-2">
-              <label className="text-xl font-serif tracking-tight mb-3">If yes, could you please provide details on the investment stages and amounts?</label>
-              <textarea 
-                className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                name="fundingDetails"
-                value={formData.fundingDetails}
-                onChange={handleChange}
-                placeholder="Funding Details" 
+                placeholder="specify" 
                 
               ></textarea>
             </div>
             <div className="flex flex-col">
-              <label className="text-xl font-serif tracking-tight mb-3">Has your startup received any awards, grants, or recognitions?</label>
-              <select 
+              <label className="text-xl font-serif tracking-tight mb-3">How much funding are you seeking, and how do you plan to use it? (Please provide a breakdown) : </label>
+              <textarea 
                 className="text-xl bg-slate-100 t-2 w-5/6 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="hasAwards"
-                value={formData.hasAwards}
+                name="funding"
+                value={formData.funding}
                 onChange={handleChange}
                 required
               >
-                <option value="">Select</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-            </div>
-            <div className="flex flex-col col-span-2">
-              <label className="text-xl font-serif tracking-tight mb-3">If yes, please provide details (mention the name of the award/grant, the awarding organization, and the year received):</label>
-              <textarea 
-                className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                name="awardsDetails"
-                value={formData.awardsDetails}
-                onChange={handleChange}
-                placeholder="Awards Details" 
-            
-              ></textarea>
-            </div>
-            <div className="flex flex-col col-span-2">
-              <label className="text-xl font-serif tracking-tight mb-3">Who are your target customers, what are their needs and size of the target market?</label>
-              <textarea 
-                className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                name="targetCustomers"
-                value={formData.targetCustomers}
-                onChange={handleChange}
-                placeholder="Target Customers" 
-                required
-              ></textarea>
+                
+              </textarea>
             </div>
             <div className="flex flex-col">
-              <label className="text-xl font-serif tracking-tight mb-3">Do you have a working prototype or minimum viable product (MVP)?</label>
+              <label className="text-xl font-serif tracking-tight mb-3">Do you require mentorship?  </label>
               <select 
                 className="text-xl bg-slate-100 t-2 w-5/6 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                name="hasPrototype"
-                value={formData.hasPrototype}
+                name="mentorship"
+                value={formData.mentorship}
                 onChange={handleChange}
                 required
               >
@@ -442,56 +351,29 @@ const Bharat = () => {
               </select>
             </div>
             <div className="flex flex-col">
-              <label className="text-xl font-serif tracking-tight mb-3">Do you have any pilot projects, case studies, or testimonials from users?</label>
-              <select 
-                className="text-xl bg-slate-100 t-2 w-5/6 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              <label className="text-xl font-serif tracking-tight mb-3">What is your startup model? (eg, product-based, service-based, process-based, marketplace startup, business innovation): </label>
+              <textarea
+              className="text-xl bg-slate-100 t-2 w-5/6 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 name="hasPilot"
                 value={formData.hasPilot}
                 onChange={handleChange}
                 required
               >
-                <option value="">Select</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
+                </textarea>
             </div>
             <div className="flex flex-col col-span-2">
-  <label className="text-xl font-serif tracking-tight mb-3">If yes, please provide evidence of the same (Upload 1 supported file. Max 1 MB):</label>
+  <label className="text-xl font-serif tracking-tight mb-3">Upload a PPT of 4 slides describing your startup which includes cover and Thank you page(Upload 1 supported file. Max 1 MB):</label>
   <input 
     className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
     type="file" 
-    name="pilotEvidence"
-    accept="application/pdf"
+    name="ppt"
+    accept=".ppt, .pptx"
     onChange={handleFileChange}
-    placeholder="Upload Evidence File" 
+    placeholder=""  
   />
 </div>
 
-
             <div className="flex flex-col col-span-2">
-              <label className="text-xl font-serif tracking-tight mb-3">What is your current runway, and what are your funding needs?</label>
-              <textarea 
-                className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                name="runway"
-                value={formData.runway}
-                onChange={handleChange}
-                placeholder="Current Runway and Funding Needs" 
-                required
-              ></textarea>
-            </div>
-            <div className="flex flex-col col-span-2">
-  <label className="text-xl font-serif tracking-tight mb-3">
-    Prepare a short video, around 3 minutes, that provides an overview of your startup, details about your product, and general information about your team and vision:
-  </label>
-  <input 
-    className="text-xl bg-slate-100 t-2 w-11/12 px-4 py-2 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-    type="file" 
-    name="video"
-    accept="video/mp4"  // Accept only MP4 format
-    onChange={handleFilesChange}
-    placeholder="Upload Video File" 
-    required
-  />
 
 <div class="flex justify-center items-center mt-2 mb-7 mt-7 gap-0.5">
   
@@ -552,4 +434,4 @@ const Bharat = () => {
   );
 };
 
-export default Bharat;
+export default Bharat;

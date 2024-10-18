@@ -86,7 +86,8 @@ const BharatPayment = () => {
   
 
   return (
-    <div className='container text-center' style={{ padding: '20px', maxWidth: '400px', margin: 'auto', backgroundColor: '#f9f9f9', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+    <>
+    <div className='container text-center' style={{ marginTop:'20px', padding: '20px', maxWidth: '400px', margin: 'auto', backgroundColor: '#f9f9f9', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
     <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '16px' }}>
       <label style={{ marginBottom: '8px', fontWeight: 'bold', color: '#333', fontSize: '14px' }}>
         Email Address:
@@ -143,7 +144,11 @@ const BharatPayment = () => {
       Pay with Razorpay
     </button>
   </div>
-  
+  <div className='container text-center' style={{ padding: '20px', maxWidth: '400px', margin: 'auto',marginTop:'20px', backgroundColor: '#f9f9f9', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+    <a style={{color:'Highlight'}} href='https://chat.whatsapp.com/DOWcmHIbH2l7OeFwBdqCWI'>Click to join whatsapp group</a>
+  </div>
+  </>
+
   );
 };
 
